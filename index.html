@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/style.css">
+    <title>How Do You Java Quiz</title>
+</head>
+
+<body>
+    <!-- header section containing high scores and the timer -->
+    <header>
+        <div class="top">
+            <a id="highscores-link">View High Scores</a>
+        </div>
+        <div id="timer" class="timer">
+            Time: 120
+        </div>
+    </header>
+    <!-- welcome section, this is where user can click to start the quiz -->
+    <Section id="welcome" class="welcome">
+        <h1>Welcome to The Fundamentals of JavaScript Quiz <br> Let's see how you Java!</h1>
+        <p>
+            You have 120 seconds to answer 5 JavaScript questions. For every question you answer incorrectly, 10 seconds
+            will be deducted from your time.  Your final score will be the time you have left after the last question.
+            What's the highest score you can get? Go ahead and click the start button when you're ready. 
+        </p>
+        <div class="start">
+            <button id="start-button" class="start-button">Start Quiz</button>
+        </div>
+    </section>
+    <!-- questions section -->
+    <section id="all-questions" class="hide">
+        <h1 id="question">Question</h1>
+        <div id="answer-buttons" class="button-box">
+            <button class="button">Answer 1</button>
+            <button class="button">Answer 2</button>
+            <button class="button">Answer 3</button>
+            <button class="button">Answer 4</button>
+        </div>
+        <h2 id="answers" class="hide"></h2>
+        <div class="options">
+            <button id="next-button" class="next-button hide">Next</button>
+        </div>
+    </section>
+    <!-- submit your initials to save score section -->
+    <section id="score-box" class="hide">
+        <form id="submit-score">
+            <h3 id="save-score"></h3>
+            <label id="initials">Enter your initials to save the score:</label>
+            <input type="text" id="player-initials" maxlength="3" placeholder="Enter your initials" />
+            <button id="submit-button">Submit</button>
+        </form>
+    </section>
+    <!-- highscores section -->
+    <section id="highscores" class="highscores-box hide">
+        <div id="high-scores">
+            <h1 class="centered">Leaderboard</h1>
+            <div id="highscore" class="highscore highscore-list">
+            </div>
+            <div class="options">
+                <button id="goback-button">Go Back</button>
+                <button id="clear-button">Clear High Scores</button>
+            </div>
+        </div>
+        
+    </section>
+
+    <script src="/assets/script.js"></script>
+</body>
+
+</html>

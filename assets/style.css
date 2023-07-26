@@ -1,0 +1,139 @@
+ /* Universal styles */
+  
+  :root {
+    --main-elements: #b706e3;
+    --hovers: #4f5175;
+    --secondary-elements: #09094f;
+    --button-text: #ffffff;
+    --correct-color: #26c05c;
+  }
+
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    line-height: 1.5;
+    width: 50%;
+    margin: 0 auto;
+  }
+ 
+  .centered {
+    text-align: center;
+  }
+
+  h1 {
+    margin-top: 80px;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  
+  h2 {
+    color: var(--secondary-elements);
+    border-top: 1px solid var(--secondary-elements);
+    margin: 20px 0;
+    font-style: italic;
+    text-align: center;
+  }
+  
+  /* Header section :  timer and high scores link */
+  header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 15px 0;
+  }
+  
+  .top a,
+  .timer {
+    font-size: 20px; 
+  }
+  
+  .top a {
+    cursor: pointer;
+    color: var(--main-elements);
+  }
+  
+  .top a:hover {
+    color: var(--hovers);
+  }
+  
+
+  /* welcome section */
+  .welcome {
+    text-align: center;
+  }
+  
+  
+  /* Buttons */
+  .button-box {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 20px 0;
+  }
+  
+  button {
+    font-family: Arial, Helvetica, sans-serif;
+    width: auto;
+    overflow: visible;
+    padding: 10px;
+    background-color: var(--main-elements);
+    border-radius: 10px;
+    font-size: large;
+    margin: 10px;
+    color: var(--button-text);
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: var(--hovers);
+  }
+  
+  .hide {
+    display: none;
+  }
+  
+  .button.correct {
+    background-color: var(--correct-color);
+  }
+  
+  .button.wrong {
+    background-color: var(--secondary-elements);
+  }
+  
+  .options {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+  }
+  
+
+  /* save score section style */
+  input[type="text"] {
+    padding: 10px;
+    margin: 8px 0;
+    border: 1px solid var(--secondary-elements);
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  /* Highscores saved style */
+  .highscores {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+  }
+    
+  /* responsive style for mobile and tablet devices */
+  @media screen and (max-width: 575px) {
+    .button-box {
+      grid-template-columns: repeat(1, auto);
+      gap: 0;
+      margin: 0;
+    }
+  }
