@@ -47,25 +47,26 @@
     margin: 15px 0;
   }
   
-  .top a,
+  .topsection a,
   .timer {
     font-size: 20px; 
   }
   
-  .top a {
+  .topsection a {
     cursor: pointer;
     color: var(--main-elements);
   }
   
-  .top a:hover {
+  .topsection a:hover {
     color: var(--hovers);
   }
   
 
   /* welcome section */
-  .welcome {
+  #welcome {
     text-align: center;
   }
+
   
   
   /* Buttons */
@@ -97,21 +98,19 @@
     display: none;
   }
   
-  .button.correct {
-    background-color: var(--correct-color);
-  }
-  
-  .button.wrong {
-    background-color: var(--secondary-elements);
-  }
-  
+  /* questions and answers assessment  */ 
   .options {
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 10px 0;
   }
-  
+
+
+  .assessment {
+    color: #1919e8
+
+}
 
   /* save score section style */
   input[type="text"] {
@@ -123,7 +122,7 @@
   }
   
   /* Highscores saved style */
-  .highscores {
+  .highscores-list {
     display: flex;
     flex-wrap: wrap;
     text-align: center;
