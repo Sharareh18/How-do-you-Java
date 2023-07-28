@@ -85,7 +85,7 @@ function nextQuestion() {
     }
 }
 
-// question and answers are pulled from the array and placed in the designated buttons on the screen. Click event designated user "answer"
+// displaying and appending q & a's to buttons: question and answers are pulled from the array and placed in the designated buttons on the screen. Click event designated user "answer"
 function displayQuestion() {
     document.getElementById("answer-buttons").innerHTML = "";
 
@@ -131,26 +131,35 @@ function endQuiz() {
 }
 
 // saving the high score to be displayed in a list. 
-submitButton.onclick = saveHighScore;
 var saveHighScore = function () {
     initials = playerInitials.value;
-  
     if (initials !== "") {
-      var highScore = JSON.parse(window.localStorage.getItem("highscores-list")) || [];
-  
-      // adding new score
-      var newScore = {
-        score: timeLeft,
-        initials: playerInitials,
-      };
-  
-      highScore.push(newScore);
-      localStorage.setItem("highScore", JSON.stringify(highScore));
-  
-    }
-  };
-  
+        var highScore = JSON.parse(window.localStorage.getItem("highScore")) || [];
 
+
+        // adding new score
+        var newScore = {
+            score: timeLeft,
+            initials: playerInitials,
+        };
+
+        highScore.push(newScore);
+        localStorage.setItem("highScore", JSON.stringify(highScore));
+
+    };
+
+    function displayHighScores() {
+        var highScore = JSON.parse(localStorage.getItem("highscores"));
+
+        highScore.forEach(function (score) {
+            var scoreList = document.createElement("li");
+            scoreList.innerHTML = score.initials + " : " + score.score;
+
+            var highScoreList = document.getElementById("highscores");
+            highScoreList.appendChild(scoreList);
+        });
+    }
+}
 
 
 
