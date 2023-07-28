@@ -1,6 +1,5 @@
 // variables and declarations
 var timerEl = document.getElementById("timer");
-
 var welcomeEl = document.getElementById("welcome");
 var startButton = document.getElementById("start-button");
 var allQuestionsEl = document.getElementById("all-questions");
@@ -15,7 +14,6 @@ var playerInitials = document.getElementById("initials");
 var goBackButton = document.getElementById("goback-button");
 
 var viewHighScores = document.getElementById("highscores-list");
-
 
 
 var timer;
@@ -62,7 +60,6 @@ function startQuiz() {
     welcomeEl.classList.add("hide");
     timerEl.textContent = timeLeft;
 
-
     timer = setInterval(function () {
         if (timeLeft > 0) {
             timeLeft--;
@@ -85,7 +82,7 @@ function nextQuestion() {
     }
 }
 
-// displaying and appending q & a's to buttons: question and answers are pulled from the array and placed in the designated buttons on the screen. Click event designated user "answer"
+// displaying and appending q & a's to buttons: question and answers are pulled from the array and placed in the designated buttons on the screen. 
 function displayQuestion() {
     document.getElementById("answer-buttons").innerHTML = "";
 
@@ -128,28 +125,35 @@ function endQuiz() {
     clearInterval(timer);
     finalScoreEl.textContent = timeLeft;
     timerEl.classList.add("hide");
+
 }
 
-// saving the high score to be displayed in a list. 
+
+// saving the high score to be displayed in a list.  
 var saveHighScore = function () {
+
     initials = playerInitials.value;
-    if (initials !== "") {
-        var highScore = JSON.parse(window.localStorage.getItem("highScore")) || [];
+    if (initials !== null) {
+        var highScore = JSON.parse(window.localStorage.setItem("highScore")) || [];
 
-
-        // adding new score
+        //adding new scores to the list 
         var newScore = {
             score: timeLeft,
             initials: playerInitials,
         };
 
         highScore.push(newScore);
-        localStorage.setItem("highScore", JSON.stringify(highScore));
+        window.localStorage.setItem("highScore", JSON.stringify(highScore));
+
+        // I know I need to get the highscores into the high score list on the main page so when clicked they're visible, couldn't figure out how.
+        // maybe location = somewhere...maybe I need to get it rendered. giving up. 
 
     };
+    options.classList.remove("hide");
+    submitButton.onclick = saveHighScore;
 
     function displayHighScores() {
-        var highScore = JSON.parse(localStorage.getItem("highscores"));
+        var highScore = JSON.parse(window.localStorage.getItem("highScore")) || [];
 
         highScore.forEach(function (score) {
             var scoreList = document.createElement("li");
@@ -157,9 +161,17 @@ var saveHighScore = function () {
 
             var highScoreList = document.getElementById("highscores");
             highScoreList.appendChild(scoreList);
+
         });
     }
+
+    function clearHighscores() {
+        window.localStorage.removeItem("highScore");
+        window.location.reload();
+    }
 }
+document.getElementById("clear-button").onclick = clearHighscores;
+displayHighScores();
 
 
 
