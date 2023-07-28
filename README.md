@@ -23,7 +23,7 @@ There is no installation required for this project. Please use the link in the u
 ## Usage
 
 
-https://sharareh18.github.io/How-do-you-java/
+[https://sharareh18.github.io/How-do-you-java/](https://sharareh18.github.io/How-do-you-Java/)
 
 
 
